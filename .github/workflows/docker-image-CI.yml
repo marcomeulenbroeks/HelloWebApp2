@@ -19,7 +19,7 @@ jobs:
       
     ## Publishes our image to Docker Hub 😎
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@v4
+      uses: elgohr/Publish-Docker-Github-Action@master
       with:
         ## the name of our image
         name: hellowebapp2
