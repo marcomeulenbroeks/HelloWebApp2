@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"log"
 	"time"
 )
 
@@ -14,15 +13,15 @@ func main() {
 	http.HandleFunc("/", handleIndex)
 
 	server := &http.Server{
-        Addr: addr,
-        ReadHeaderTimeout: 3 * time.Second,
-    }
+		Addr:              addr,
+		ReadHeaderTimeout: 3 * time.Second,
+	}
 
-    err := server.ListenAndServe()
+	err := server.ListenAndServe()
 
 	if err != nil {
-        log.Fatal("ListenAndServe: ", err)
-    }
+		log.Fatal("ListenAndServe: ", err)
+	}
 }
 
 func handleIndex(w http.ResponseWriter, r *http.Request) {
