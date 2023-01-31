@@ -22,7 +22,7 @@ jobs:
 
     ## Build and Publishes our image to Docker Hub 😎
     - name: Docker Build and Push
-      uses: docker/build-and-push-action@v2
+      uses: docker/build-push-action@v2
       with:
         context: .
         push: true
