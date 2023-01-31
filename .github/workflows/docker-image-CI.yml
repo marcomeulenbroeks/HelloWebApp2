@@ -17,7 +17,7 @@ jobs:
         DOCKER_USER: ${{secrets.DOCKERHUB_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKERHUB_TOKEN}}
       run: |
-        docker login -u $DOCKERHUB_USER -p $DOCKERHUB_TOKEN
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     ## Builds our docker image!
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag nlehvmema/helloapp:$(date +%s)
