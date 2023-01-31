@@ -20,7 +20,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     ## Builds our docker image!
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag nlehvmema/helloapp:$(date +%s)
+      run: docker build . --file Dockerfile --tag nlehvmema/helloapp
     ## Publishes our image to Docker Hub 😎
     - name: Docker Push
       run: docker push nlehvmema/helloapp
