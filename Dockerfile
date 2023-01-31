@@ -7,6 +7,6 @@ COPY *.go ./
 
 RUN go build -o /hello-web-app
 
-EXPOSE 8087:8087
+EXPOSE 8087
 
 CMD [ "/hello-web-app" ]
