@@ -12,18 +12,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
+    - name: docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKERHUB_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKERHUB_TOKEN}}
+      run: |
+        docker login -u $DOCKERHUB_USER -p $DOCKERHUB_TOKEN
     ## Builds our docker image!
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-      
+      run: docker build . --file Dockerfile --tag nlehvmema/helloapp:$(date +%s)
     ## Publishes our image to Docker Hub 😎
-    - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        ## the name of our image
-        name: hellowebapp2
-        ## Here we pass in our Docker Username
-        username: ${{ secrets.DOCKERHUB_USER }}
-        ## and our Docker password which 
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Docker Push
+      run: docker push nlehvmema/helloapp
