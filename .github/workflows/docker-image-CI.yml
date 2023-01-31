@@ -24,6 +24,6 @@ jobs:
         ## the name of our image
         name: hellowebapp2
         ## Here we pass in our Docker Username
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        username: ${{ secrets.DOCKERHUB_USER }}
         ## and our Docker password which 
         password: ${{ secrets.DOCKERHUB_TOKEN }}
